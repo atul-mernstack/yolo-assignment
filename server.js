@@ -12,7 +12,7 @@ const app = require('./app');
 const dbConnetion = require('./utils/user.db');
 
 //db connection
-dbConnetion()
+dbConnetion(process.env.DB_URL);
 
 
 
