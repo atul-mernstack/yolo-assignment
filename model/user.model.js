@@ -24,8 +24,15 @@ const userSchema = new mongoose.Schema({
         type:String,
         select:false,
         default:null
+    },
+    sessionID1:{
+        type:String,
+        select:false,
+        default:null
     }
 });
+
+
 
 userSchema.pre("save", async function (next) {
 
