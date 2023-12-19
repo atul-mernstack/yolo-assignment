@@ -67,6 +67,18 @@ class userContoller {
                 if(!isPasswordMatched) {
                     return res.status(401).json({success:false,message:"Invalid phone or Password"})
                 }
+
+
+                // if(!user) {
+                //     return res.status(401).json({success:false,message:"Invalid Phone or Password"})
+                // }
+
+                // const isPasswordMatched = await user.comparePassword(password);
+
+                // if(!isPasswordMatched) {
+                //     return res.status(401).json({success:false,message:"Invalid phone or Password"})
+
+
                 const token = user.getJWTToken();
                 user.sessionID=token;
                 await user.save();
@@ -136,7 +148,7 @@ class userContoller {
         }
     }
 
-    // user delete
+    // user logout
     async userLogout(req,res){
         try {
             req.session.token=null;
